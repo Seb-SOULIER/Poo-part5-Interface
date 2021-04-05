@@ -1,11 +1,9 @@
 <?php
 require_once 'Bicycle.php';
 require_once 'Car.php';
+require_once 'Truck.php';
 
 $bike = new Bicycle('Brown',1);
-echo $bike->forward();
-var_dump($bike);
-
 $bike->setColor('blue');
 
 // Moving bike
@@ -22,15 +20,13 @@ $rockrider = new Bicycle('yellow',1);
 $tornado = new Bicycle('black',1);
 $tornado->forward();
 
-var_dump($bike);
-$rockrider->dump();
-$tornado->dump();
+// $tornado->dump();
 
 // Car
 $car1 = new Car('Red',5,'fuel');
 $car2=new Car('Jaune',4,'electric');
-var_dump($car1);
-var_dump($car2);
+// var_dump($car1);
+// var_dump($car2);
 var_dump(Car::ALLOWED_ENERGIES);
 
 // // Moving car
@@ -44,12 +40,12 @@ echo $car1->brake();
 echo '<br> Vitesse du voiture : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
 echo $car1->brake(). '<br>';
 
-// Moving Car 2
-echo $car2->forward();
-echo '<br> Vitesse de la voiture '.$car2->getColor().' : ' . $car2->getCurrentSpeed() . ' km/h' . '<br>';
-echo $car2->brake();
-echo '<br> Vitesse du voiture : ' . $car2->getCurrentSpeed() . ' km/h' . '<br>';
-echo $car2->brake(). '<br>';
+// // Moving Car 2
+// echo $car2->forward();
+// echo '<br> Vitesse de la voiture '.$car2->getColor().' : ' . $car2->getCurrentSpeed() . ' km/h' . '<br>';
+// echo $car2->brake();
+// echo '<br> Vitesse du voiture : ' . $car2->getCurrentSpeed() . ' km/h' . '<br>';
+// echo $car2->brake(). '<br>';
 
 // Caracteristique Car 1
 echo "La voiture a :" . $car1->getNbSeats(). ' places <br>' ;
@@ -63,4 +59,19 @@ echo "La voiture a :" . $car2->getNbSeats(). ' places <br>' ;
 echo "La voiture est :" .$car2->getEnergy(). '<br>' ;
 echo 'la voiture est : '.$car2->getColor(). '<br>' ;
 echo 'La voiture roule a : ' . $car2->getCurrentSpeed(). 'km/h <br>' ;
-echo 'Le vehicule a :'.$car2->getNbWheels(). ' roues <br><br>' ;
+echo 'La voiture a :'.$car2->getNbWheels(). ' roues <br><br>' ;
+
+// Creation d'un camion
+$truck1 = new Truck('Green',2,'fuel','full');
+echo "Le vehicule a :" . $truck1->getNbSeats(). ' places <br>' ;
+echo "Le vehicule est :" .$truck1->getEnergy(). '<br>' ;
+echo 'Le vehicule est : '.$truck1->getColor(). '<br>' ;
+echo 'Le vehicule roule a : ' . $truck1->getCurrentSpeed(). 'km/h <br>' ;
+echo 'Le vehicule a :'.$truck1->getNbWheels(). ' roues <br>' ;
+echo 'Le vehicule est : ' . $truck1->getCapacity(). '<br>' ;
+echo 'Le vehicule est chargé de :'.$truck1->getCharge(). 'kg <br><br>' ;
+echo $truck1->forward();
+echo '<br> Vitesse du camion '.$car1->getColor().' : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
+echo $truck1->brake();
+echo '<br> Vitesse du camion : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
+echo $truck1->brake(). '<br>';
