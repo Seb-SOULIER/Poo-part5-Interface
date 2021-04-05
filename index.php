@@ -2,6 +2,7 @@
 require_once 'Bicycle.php';
 require_once 'Car.php';
 require_once 'Truck.php';
+require_once 'HighWay.php';
 
 $bike = new Bicycle('Brown',1);
 $bike->setColor('blue');
@@ -75,3 +76,5 @@ echo '<br> Vitesse du camion '.$car1->getColor().' : ' . $car1->getCurrentSpeed(
 echo $truck1->brake();
 echo '<br> Vitesse du camion : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
 echo $truck1->brake(). '<br>';
+
+$truck2= new Vehicle('black',2,'fuel');
