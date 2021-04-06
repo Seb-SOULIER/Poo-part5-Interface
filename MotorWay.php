@@ -4,16 +4,19 @@ require_once 'HighWay.php';
 
 final class MotorWay extends HighWay
 {
-    private array $currentVehicles;
-    private int $nbLane = 4;
-    private int $maxSpeed = 130;
-
-    public function addVehicle(Vehicle $vehicle)
+    public function __construct()
     {
-        if ($vehicle instanceof Car == true) {
-            $vehicle.array_push($currentVehicles);
+        $this->setNbLane(4);
+        $this->setMaxSpeed(130); 
+    }
+
+    public function addVehicle(Vehicle $vehicle):string
+    {
+        if ($vehicle instanceof Car || $vehicle instanceof Truck) {
+            $this->currentVehicule[] = $vehicle;
+            return "Un nouveau vehicule est entrée sur la voie MotorWay. <br>";
         } else {
-            return 'You cannot ride with ' . $vehicle .' on this way type';
+            return "Vous n'etes pas autorisé a rouler avec :" . strtolower(get_class($vehicle)) ." sur la route MotorWay. <br>";
         }
     }
 }

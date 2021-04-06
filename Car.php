@@ -5,7 +5,8 @@ require_once 'Vehicle.php';
 class Car extends Vehicle
 {
     private string $energy;
- 
+    public int $currentspeed = 15;
+
     public const ALLOWED_ENERGIES = [
         'fuel',
         'electric',
@@ -31,5 +32,4 @@ class Car extends Vehicle
         }
         return $this;
     }
-
 }

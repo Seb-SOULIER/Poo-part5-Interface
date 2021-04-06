@@ -4,16 +4,19 @@ require_once 'HighWay.php';
 
 final class PedestrianWay extends HighWay
 {
-    private array $currentVehicles;
-    private int $nbLane = 1;
-    private int $maxSpeed = 10;
-
-    public function addVehicle(Vehicle $vehicle)
+    public function __construct()
     {
-        if ($vehicle instanceof Bicycle == true || $vehicle instanceof Skateboard == true) {
-            $vehicle.array_push($currentVehicles);
+        $this->setNbLane(1);
+        $this->setMaxSpeed(10); 
+    }
+
+    public function addVehicle(Vehicle $vehicle):string
+    {
+        if ($vehicle instanceof Bicycle) {
+            $this->currentVehicule[] = $vehicle;
+            return "Un nouveau vehicule est entrée sur la voie PedestrianWay. <br>";
         } else {
-            return 'You cannot ride with ' . $vehicle .' on this way type';
+            return "Vous n'etes pas autorisé a rouler avec :" . strtolower(get_class($vehicle)) ." sur la route PedestrianWay. <br>";
         }
     }
 }
