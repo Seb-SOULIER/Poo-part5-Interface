@@ -7,9 +7,60 @@ require_once 'MotorWay.php';
 require_once 'PedestrianWay.php';
 require_once 'ResidentialWay.php';
 
+// Car
+$car1 = new Car('Red',5,'fuel');
+$car2 = new Car('Jaune',4,'electric');
 
-$bike = new Bicycle('Brown',1);
-$bike->setColor('blue');
+
+// Moving Car 1
+// Affichage de la position du frein a main 
+if ($car1->getHasParkBrake() === true) {
+    echo "Le frein a main est mis"."<br>";
+}
+if ($car1->getHasParkBrake() === false) {
+    echo "Le frein a main n'est pas mis"."<br>";
+}
+
+// Commande a executer si pas d'erreur
+try {
+    $car1->start()."<br>"; 
+    echo $car1->forward()."<br>";
+    echo $car1->brake();
+// Affichage de l'erreur si erreur
+} catch(Exception $e){
+    echo "Exception received  : ". $e->getMessage() . "<br>";
+}
+
+// Inversion du frein a main
+$car1->setHasParkBrake();
+
+// Affichage de la position du frein a main 
+if ($car1->getHasParkBrake()=== true) {
+    echo "Le frein a main est mis"."<br>";
+}
+if ($car1->getHasParkBrake() === false) {
+    echo "Le frein a main n'est pas mis"."<br>";
+}
+
+// Commande a executer si pas d'erreur
+try {
+    $car1->start()."<br>"; 
+    echo $car1->forward()."<br>";
+    echo $car1->brake();
+// Affichage de l'erreur si erreur
+} catch(Exception $e){
+    echo "Exception received  : ". $e->getMessage() . "<br>";
+}
+
+echo '<br> Vitesse de la voiture '.$car1->getColor().' : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
+// echo $car1->start()."<br>";
+echo '<br> Vitesse du voiture : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
+
+
+
+
+// $bike = new Bicycle('Brown',1);
+// $bike->setColor('blue');
 
 // Moving bike
 // echo $bike->forward();
@@ -19,31 +70,14 @@ $bike->setColor('blue');
 // echo $bike->brake();
 
 // Instanciation d'un nouvel objet $rockrider
-$rockrider = new Bicycle('yellow',1);
+// $rockrider = new Bicycle('yellow',1);
 
 // Instanciation d'un nouvel objet $tornado
-$tornado = new Bicycle('black',1);
+// $tornado = new Bicycle('black',1);
 // $tornado->forward();
 
 // $tornado->dump();
 
-// Car
-$car1 = new Car('Red',5,'fuel');
-$car2=new Car('Jaune',4,'electric');
-// var_dump($car1);
-// var_dump($car2);
-// var_dump(Car::ALLOWED_ENERGIES);
-
-// // Moving car
-// $car1->setCurrentSpeed(0);
-// $car2->setCurrentSpeed(0);
-
-// Moving Car 1
-// echo $car1->forward();
-// echo '<br> Vitesse de la voiture '.$car1->getColor().' : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
-// echo $car1->brake();
-// echo '<br> Vitesse du voiture : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
-// echo $car1->brake(). '<br>';
 
 // // Moving Car 2
 // echo $car2->forward();
@@ -67,7 +101,7 @@ $car2=new Car('Jaune',4,'electric');
 // echo 'La voiture a :'.$car2->getNbWheels(). ' roues <br><br>' ;
 
 // Creation d'un camion
-$truck1 = new Truck('Green',2,'fuel','full');
+// $truck1 = new Truck('Green',2,'fuel','full');
 // echo "Le vehicule a :" . $truck1->getNbSeats(). ' places <br>' ;
 // echo "Le vehicule est :" .$truck1->getEnergy(). '<br>' ;
 // echo 'Le vehicule est : '.$truck1->getColor(). '<br>' ;
@@ -81,23 +115,23 @@ $truck1 = new Truck('Green',2,'fuel','full');
 // echo '<br> Vitesse du camion : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
 // echo $truck1->brake(). '<br>';
 
-$truck2= new Vehicle('black',2,'fuel');
+// $truck2= new Vehicle('black',2,'fuel');
 
 
-$motorWay = new MotorWay;
-$pedestrianWay=new PedestrianWay;
-$residentialWay=new ResidentialWay;
+// $motorWay = new MotorWay;
+// $pedestrianWay=new PedestrianWay;
+// $residentialWay=new ResidentialWay;
 
 //Add new vehicles
-echo $motorWay->addVehicle($car1);
-echo $motorWay->addVehicle($bike);
-echo $motorWay->addVehicle($truck2)."<br>";
+// echo $motorWay->addVehicle($car1);
+// echo $motorWay->addVehicle($bike);
+// echo $motorWay->addVehicle($truck2)."<br>";
 
-echo $pedestrianWay->addVehicle($car1);
-echo $pedestrianWay->addVehicle($bike);
-echo $pedestrianWay->addVehicle($truck2)."<br>";
+// echo $pedestrianWay->addVehicle($car1);
+// echo $pedestrianWay->addVehicle($bike);
+// echo $pedestrianWay->addVehicle($truck2)."<br>";
 
-echo $residentialWay->addVehicle($car1);
-echo $residentialWay->addVehicle($bike);
-echo $residentialWay->addVehicle($truck2)."<br>";
+// echo $residentialWay->addVehicle($car1);
+// echo $residentialWay->addVehicle($bike);
+// echo $residentialWay->addVehicle($truck2)."<br>";
 
