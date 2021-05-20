@@ -6,6 +6,7 @@ require_once 'HighWay.php';
 require_once 'MotorWay.php';
 require_once 'PedestrianWay.php';
 require_once 'ResidentialWay.php';
+require_once 'LightableInterface.php';
 
 // Car
 $car1 = new Car('Red',5,'fuel');
@@ -57,7 +58,17 @@ echo '<br> Vitesse de la voiture '.$car1->getColor().' : ' . $car1->getCurrentSp
 echo '<br> Vitesse du voiture : ' . $car1->getCurrentSpeed() . ' km/h' . '<br>';
 
 
+// interface
 
+$myCar = new Car('bleu',4,'fuel');
+$myBicycle = new Bicycle('black',1);
+
+$myCar->switchOn();
+$myCar->switchOff();
+
+$myBicycle->switchOn(0);
+$myBicycle->switchOn(15);
+$myBicycle->switchOff();
 
 // $bike = new Bicycle('Brown',1);
 // $bike->setColor('blue');
